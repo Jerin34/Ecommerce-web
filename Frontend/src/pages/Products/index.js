@@ -1,0 +1,8 @@
+import Header from "../../components/Header";
+const Products = () =>(
+    <div>
+        <Header />
+        <h1>Products page</h1>
+        </div>
+)
+export default Products;
