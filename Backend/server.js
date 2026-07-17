@@ -1,14 +1,21 @@
- const dns = require('dns');
+const path = require("path");
+require("dotenv").config({
+    path: path.join(__dirname, ".env"),
+});
+const dns = require('dns');
 dns.setServers(['8.8.8.8', '1.1.1.1']);
  const express= require('express');
  const app = express();
- require('dotenv').config();
  const connectDb  = require('./config/db')
  const cors = require('cors');
  const authRoutes = require('./routes/authRoutes')
 const middleWarefunc  = require('./middleware/authmiddleware')
 const productRoutes = require('./routes/productRoutes')
 const cartRoutes = require('./routes/cartRoutes')
+const orderRoutes = require('./routes/orderRoutes')
+const adminRoutes = require('./routes/adminRoutes')
+const chatRoutes = require('./routes/chatRoutes')
+const reviewRoutes = require('./routes/reviewRoutes')
  app.use(express.json());
  app.use(cors());
  connectDb();
@@ -16,12 +23,17 @@ const cartRoutes = require('./routes/cartRoutes')
 app.get('/',(req,res) =>{
     res.send("Lets start the backend now")
 })
+
 app.use('/api/cart',cartRoutes);
 app.use('/api/products',productRoutes);
+app.use('/api/orders',orderRoutes);     
+app.use('/api/admin', adminRoutes);
 app.get('/protected',middleWarefunc,(req,res) =>{
     res.json({message:"This is a protected route",user:req.user});
 });
+app.use('/api/review',reviewRoutes);
+app.use('/api/chat',chatRoutes);
 app.listen(5000,() =>{
     console.log('Server is Running on port 5000');
-}) 
+})
 module.exports = app;

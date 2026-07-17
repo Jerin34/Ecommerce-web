@@ -47,10 +47,46 @@ const RemoveFromCart = async (req,res) =>{
         if(!cartItem){
             return res.status(404).json({message:'Cart Item Not Found'})
         }
+        
         return res.status(200).json({message:'Cart Item Deleted Successfully'})
     }
     catch(err){
         return res.status(500).json({message:'An error Occured',error:err.message})
     }
 }
-module.exports = {AddtoCart,GetItem,RemoveFromCart}
+const updateCartQuantity = async (req, res) => {
+  const { id } = req.params;
+  const { action } = req.body;
+
+  try {
+    const cartItem = await Cartmodel.findById(id);
+    if (!cartItem) {
+      return res.status(404).json({ message: 'Cart Item Not Found' });
+    }
+
+    if (cartItem.user.toString() !== req.user.id.toString()) {
+      return res.status(403).json({ message: 'Unauthorized Access' });
+    }
+
+    if (action === 'increase') {
+      cartItem.quantity += 1;
+      await cartItem.save();
+      return res.status(200).json({ message: 'Cart Quantity Updated Successfully' });
+    } else if (action === 'decrease') {
+      if (cartItem.quantity === 1) {
+        await cartItem.deleteOne();
+        return res.status(200).json({ message: 'Cart Item Deleted Successfully' });
+      } else {
+        cartItem.quantity -= 1;
+        await cartItem.save();
+        return res.status(200).json({ message: 'Cart Quantity Updated Successfully' });
+      }
+    } else {
+      return res.status(400).json({ message: 'Invalid Action' });
+    }
+  } catch (err) {
+    return res.status(500).json({ message: 'Error in Updating Cart Quantity', error: err.message });
+  }
+};
+
+module.exports = {AddtoCart,GetItem,RemoveFromCart,updateCartQuantity}

@@ -1,0 +1,59 @@
+/* General container */
+.orders-success,
+.orders-loading,
+.orders-failure {
+  text-align: center;
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 800px;
+}
+
+/* Loading state */
+.orders-loading {
+  color: #3498db;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.loading-text {
+  animation: pulse 1.5s infinite;
+}
+@keyframes pulse {
+  0% { opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+
+/* Success state */
+.orders-title {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+.orders-list {
+  list-style: none;
+  padding: 0;
+}
+.orders-list li {
+  background: #f9f9f9;
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+.orders-list li:hover {
+  transform: scale(1.02);
+}
+
+/* Failure state */
+.orders-failure {
+  color: #e74c3c;
+}
+.error-image {
+  width: 120px;
+  margin-bottom: 15px;
+}
+.error-message {
+  font-size: 1.2rem;
+  font-weight: bold;
+}

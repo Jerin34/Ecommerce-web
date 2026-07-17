@@ -1,0 +1,52 @@
+/* Cart.css */
+
+/* Main wrapper for the cart page */
+.cart-container {
+  padding: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+  font-family: 'Roboto', sans-serif; 
+  text-align: center; /* Or whichever font your app uses */
+}
+
+/* Centers the loading spinner and error messages perfectly */
+.loader-container,
+.error-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh; /* Adjust this so it sits nicely in the middle of your screen */
+}
+
+/* Styling for the text under the loader and error image */
+.loader-container h1,
+.error-container h1 {
+  margin-top: 24px;
+  color: #334155;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+/* Keeps the error image responsive */
+.error-container img {
+  width: 100%;
+  max-width: 350px;
+}
+
+/* Removes default bullet points and adds spacing between cart items */
+.cart-list-container {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px; 
+}
+.total{
+  color:antiquewhite;
+  font-size: 20px;
+  font-weight: 500;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}

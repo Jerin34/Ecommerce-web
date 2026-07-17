@@ -1,0 +1,191 @@
+.product-details-page {
+    min-height: 80vh;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:
+        radial-gradient(circle at top left, rgba(79, 70, 229, 0.12), transparent 25%),
+        linear-gradient(135deg, #f8faff 0%, #eef3ff 100%);
+}
+
+.product-details-card {
+    width: 100%;
+    max-width: 1150px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(15, 23, 42, 0.14);
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    backdrop-filter: blur(10px);
+}
+
+.product-image {
+    width: 100%;
+    min-height: 420px;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+}
+
+.product-image:hover {
+    transform: scale(1.02);
+}
+
+.product-info {
+    padding: 38px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.product-category {
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: #4f46e5;
+    margin-bottom: 10px;
+}
+
+.product-info h1 {
+    font-size: 2.2rem;
+    margin: 0 0 12px;
+    color: #0f172a;
+    line-height: 1.2;
+}
+
+.product-description {
+    color: #64748b;
+    line-height: 1.8;
+    margin-bottom: 24px;
+    font-size: 1rem;
+}
+
+.product-price-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: auto;
+}
+
+.price {
+    font-size: 1.7rem;
+    font-weight: 800;
+    color: #111827;
+}
+
+.stock-badge {
+    padding: 9px 14px;
+    border-radius: 999px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.06);
+}
+
+.in-stock {
+    background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+    color: #166534;
+}
+
+.out-of-stock {
+    background: linear-gradient(135deg, #fee2e2, #fecaca);
+    color: #991b1b;
+}
+
+.product-details-loading {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background:
+        radial-gradient(circle at top, rgba(79, 70, 229, 0.16), transparent 30%),
+        linear-gradient(135deg, #f8faff 0%, #eef3ff 100%);
+    color: #334155;
+}
+
+.loader {
+    width: 60px;
+    height: 60px;
+    border: 6px solid rgba(79, 70, 229, 0.16);
+    border-top-color: #4f46e5;
+    border-radius: 50%;
+    animation: spin 0.9s linear infinite;
+    margin-bottom: 16px;
+    box-shadow: 0 10px 25px rgba(79, 70, 229, 0.12);
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.product-details-error {
+    min-height: 80vh;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(rgba(15, 23, 42, 0.62), rgba(15, 23, 42, 0.62)),
+        url("https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80");
+    background-size: cover;
+    background-position: center;
+}
+
+.error-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 36px;
+    border-radius: 24px;
+    text-align: center;
+    max-width: 500px;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.error-card h1 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #111827;
+    font-size: 1.8rem;
+}
+
+.error-card p {
+    color: #475569;
+    margin-bottom: 20px;
+    line-height: 1.7;
+}
+
+.retry-btn {
+    border: none;
+    padding: 12px 20px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 700;
+    box-shadow: 0 10px 20px rgba(79, 70, 229, 0.22);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.retry-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 24px rgba(79, 70, 229, 0.28);
+}
+
+@media (max-width: 768px) {
+    .product-details-card {
+        grid-template-columns: 1fr;
+    }
+
+    .product-info {
+        padding: 24px;
+    }
+
+    .product-image {
+        min-height: 300px;
+    }
+}
