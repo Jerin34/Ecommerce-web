@@ -208,10 +208,10 @@ renderEmptyState = () =>(
         ) :
         (this.renderEmptyState())
       }
-        <div>
-          <button disabled={currentPage === 1} onClick={this.goToPreviousPage} className="prev">Previous</button>
+        <div className="pagination-controls">
+          <button disabled={currentPage === 1} onClick={this.goToPreviousPage} className="pagination-btn prev">Previous</button>
           <p className="pages">{currentPage} of {totalPages}</p>
-          <button disabled={currentPage === totalPages} onClick={this.goToNextPage} className="next">Next</button>
+          <button disabled={currentPage === totalPages} onClick={this.goToNextPage} className="pagination-btn next">Next</button>
         </div>
       </div>
     );

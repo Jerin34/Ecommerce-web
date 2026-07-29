@@ -1,5 +1,6 @@
 import {Component} from 'react'
 import './index.css'
+import AdminHeader from '../AdminHeader'
 const apistatuses = {
     initial: 'INITIAL',
     success: 'SUCCESS',
@@ -80,6 +81,7 @@ class AdminProducts extends Component {
         const {productsList} = this.state;
         return (
             <div className="products-container">
+                <AdminHeader/>
                 <h1 className="products-title">Products</h1>
                 
                 {/* Table Wrapper for Responsiveness */}

@@ -1,6 +1,7 @@
 import {Component} from 'react'
 import './index.css'
 import AdminOrders from '../AdminOrders'
+import AdminHeader from '../AdminHeader'
 
 const apistatuses = {
     initial: 'INITIAL',
@@ -58,6 +59,7 @@ class AdminDashboard extends Component{
         const { dashboardData } = this.state;
         return(
             <div className="dashboard-container">
+                <AdminHeader/>
                 <h1 className="dashboard-title">Dashboard</h1>
                 <div className="stats-grid">
                     <div className="stat-card">

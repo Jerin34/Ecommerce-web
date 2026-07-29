@@ -16,6 +16,8 @@ const orderRoutes = require('./routes/orderRoutes')
 const adminRoutes = require('./routes/adminRoutes')
 const chatRoutes = require('./routes/chatRoutes')
 const reviewRoutes = require('./routes/reviewRoutes')
+const wishListRoutes = require('./routes/wishlistRoutes')
+const addressRoutes = require('./routes/addressRoutes')
  app.use(express.json());
  app.use(cors());
  connectDb();
@@ -33,6 +35,8 @@ app.get('/protected',middleWarefunc,(req,res) =>{
 });
 app.use('/api/review',reviewRoutes);
 app.use('/api/chat',chatRoutes);
+app.use('/api/wishlist',wishListRoutes);
+app.use('/api/address',addressRoutes);
 app.listen(5000,() =>{
     console.log('Server is Running on port 5000');
 })

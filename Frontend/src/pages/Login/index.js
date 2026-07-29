@@ -24,11 +24,16 @@ class Login extends Component{
             showPassword: !prevState.showPassword
         }))
     }
-    onSubmitSuccess = token => {
+    onSubmitSuccess = (token,role) => {
         localStorage.setItem('jwt_token',token)
+        localStorage.setItem('role',role)
         showToast('Login successful', 'success');
+        if(role === 'admin'){
+            window.location.replace('/admin/dashboard')
+        }else{
         window.location.replace('/products')
-    }
+        }
+        }
     onSubmitFailure = errorMsg => {
         this.setState({
             errorMsg
@@ -54,7 +59,7 @@ class Login extends Component{
         const response = await fetch(url,options);
         const data = await response.json();
         if(response.ok){
-            this.onSubmitSuccess(data.token)
+            this.onSubmitSuccess(data.token,data.role)
         }
         else{
             this.onSubmitFailure(data.message)

@@ -1,10 +1,10 @@
+import { showToast } from '../../components/Toast';
 import './index.css'
 
 const Cartitem = props =>{
     const {cartItem,removeCartItem, refreshCarts} = props;
     const {product,quantity} = cartItem
    const  onDeleteItem = async id =>{
-    console.log('clicked')
         const token = localStorage.getItem('jwt_token');
         const url = `http://localhost:5000/api/cart/${id}`;
         const options = {
@@ -20,15 +20,15 @@ const response = await fetch(url,options);
         removeCartItem(id);
         }
         else{
-            console.log("Failed to remove item");
+            showToast("Failed to remove item");
         }
         } catch (error) {
-            console.log("Cant Remove item");
+            showToast("Cant Remove item");
         }
         
     }
     const increaseQuantity = async (id,action) =>{
-        console.log('clicked')
+       
         const token = localStorage.getItem('jwt_token');
         const url = `http://localhost:5000/api/cart/${id}`;
         const options = {
@@ -46,16 +46,15 @@ const response = await fetch(url,options);
                 refreshCarts();
             }
             else{
-                console.log("Failed to add item")
+                showToast("Failed to add item")
             }
             }
 
     catch(e){
-        console.log("Error");
+        showToast(e.message);
     }
 }
  const decreaseQuantity = async (id,action) =>{
-        console.log('clicked')
         const token = localStorage.getItem('jwt_token');
         const url = `http://localhost:5000/api/cart/${id}`;
         const options = {
@@ -73,12 +72,12 @@ const response = await fetch(url,options);
                 refreshCarts();
             }
             else{
-                console.log("Failed to add item")
+                showToast("Failed to remove item")
             }
             }
 
     catch(e){
-        console.log("Error");
+        showToast(e.message)
     }
 }
     return(

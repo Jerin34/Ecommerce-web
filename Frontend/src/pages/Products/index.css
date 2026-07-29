@@ -215,6 +215,52 @@ select option {
 
 
 /* ========================================
+   PAGINATION CONTROLS
+   ======================================== */
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 24px 0 32px;
+  padding: 0 24px;
+}
+
+.pagination-btn {
+  border: none;
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(135deg, #ff7a00 0%, #ff4d6d 100%);
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(255, 122, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.pagination-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(255, 122, 0, 0.28);
+}
+
+.pagination-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.pages {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #475569;
+  min-width: 72px;
+  text-align: center;
+}
+
+/* ========================================
    EMPTY STATE / ERROR STATE
    ======================================== */
 

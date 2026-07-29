@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import Orderitem from '../Orderitem';
 import { showToast } from '../../components/Toast';
+import Header from '../Header'
 import './index.css';
 
 const apistatuses = {
@@ -35,9 +36,7 @@ class Orders extends Component {
         try {
             const response = await fetch(url, options);
             const data = await response.json();
-            console.log(data);
-            console.log(data.orders)
-
+            console.log(data)
             if (response.ok) {
                 this.setState({ orderList: data.orders, isloading: apistatuses.success });
             } else {
@@ -65,6 +64,7 @@ class Orders extends Component {
         const { orderList } = this.state;
         return (
             <div className="orders-success">
+                <Header />
                 <h1 className="orders-title">Your Orders</h1>
                 <ul className="orders-list">
                     {orderList.map(each => (

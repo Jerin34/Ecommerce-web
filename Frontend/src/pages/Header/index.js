@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart, faBoxes, faSignOutAlt, faHome } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart, faBoxes, faSignOutAlt, faHome, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import './index.css'
 
 const Header = () =>{
@@ -27,6 +27,7 @@ const Header = () =>{
                     </li>
                     <li className="nav-item">
                         <Link to="/products" className="nav-link">
+                            <FontAwesomeIcon icon={faBoxes} className="nav-icon" />
                             <span>Products</span>
                         </Link>
                     </li>
@@ -40,6 +41,12 @@ const Header = () =>{
                         <Link to="/orders" className="nav-link">
                             <FontAwesomeIcon icon={faBoxes} className="nav-icon" />
                             <span>Orders</span>
+                        </Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link to="/address" className="nav-link">
+                            <FontAwesomeIcon icon={faMapMarkerAlt} className="nav-icon" />
+                            <span>Address</span>
                         </Link>
                     </li>
                     <li className="nav-item logout-item">

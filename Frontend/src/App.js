@@ -6,7 +6,7 @@ import Products from './pages/Products'
 import Register from "./pages/Register";
 import Cart from './pages/Carts'
 import Orders from './pages/Orders'
-import ProtectedRoute from './components/ProtectedRoute'
+import ProtectedRoute from './components/UserRoute'
 import PublicRoute from './components/PublicRoute'
 import AdminDashboard from './pages/AdminDashboard'
 import AdminProducts from "./pages/AdminProducts";
@@ -14,6 +14,10 @@ import AddProducts from "./pages/AddProducts";
 import EditProductWrapper from "./wrappers/EditProductwrapper";
 import ToastProvider from './components/Toast';
 import ProductDetails from "./pages/ProductDetails";
+import WishList from "./pages/wishlists";
+import AdminRoute from "./components/AdminProtector";
+import AddressPage from "./pages/AddressPage";
+import Checkout from './pages/Checkout'
 const App = () =>(
     <> 
     <ToastProvider />
@@ -25,12 +29,16 @@ const App = () =>(
         <Route  path="/products" element={<ProtectedRoute><Products/></ProtectedRoute>} />
         <Route path="/carts" element = {<ProtectedRoute><Cart/></ProtectedRoute>} />
         <Route path="/orders" element = {<ProtectedRoute><Orders/></ProtectedRoute>} />
-        <Route path='/admin/dashboard' element={<ProtectedRoute><AdminDashboard/></ProtectedRoute>}/>
-        <Route path='/admin/products' element={<ProtectedRoute><AdminProducts/></ProtectedRoute>}/>
-        <Route path='/admin/add-product' element={<ProtectedRoute><AddProducts/></ProtectedRoute>}/>
+        <Route path='/admin/dashboard' element={<AdminRoute><AdminDashboard/></AdminRoute> }/>
+        <Route path='/admin/products' element={<AdminRoute><AdminProducts/></AdminRoute>}/>
+        <Route path='/admin/add-product' element={<AdminRoute><AddProducts/></AdminRoute>}/>
         <Route path="/products/:id" element={<ProtectedRoute><ProductDetails/></ProtectedRoute>}/>
+        <Route path="/checkout" element={<ProtectedRoute><Checkout/></ProtectedRoute>} />
+        <Route path="/wishlist" element={<WishList/>} />
         <Route path="/admin/edit-product/:id"element={<EditProductWrapper />}/>
+        <Route path="/address" element={<AddressPage/>}/>
         <Route path="*" element={<NotFound/>}/>
+
 
     </Routes>
     </BrowserRouter>

@@ -2,10 +2,20 @@
    PRODUCT ITEM CARD STYLES
    ========================================= */
 
+/* Link wrapper so each product card fills the same grid cell */
+.product-item-link {
+  display: flex;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
 /* The Card Container */
 .product-item-container {
   display: flex;
-  flex-direction: column; /* Image left, info right on desktop */
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
   background: #ffffff;
   border: 1px solid #e5e7eb;
   border-radius: 16px;
@@ -44,7 +54,7 @@
   display: flex;
   flex-direction: column;
   padding: 1.5rem;
-  flex-grow: 1;
+  flex: 1 1 auto;
 }
 
 /* Typography */

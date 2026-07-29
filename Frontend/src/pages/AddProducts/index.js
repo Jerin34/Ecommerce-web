@@ -1,5 +1,6 @@
 import {Component} from 'react';
 import { showToast } from '../../components/Toast';
+import AdminHeader from '../AdminHeader'
 import './index.css';
 class AddProducts extends Component{
     state={
@@ -73,6 +74,7 @@ formSubmit = async (e) =>{
     render(){
         return(
             <>
+            <AdminHeader/>
             <div className="add-product-container">
                 <h1>Add Products</h1>
                 <form onSubmit={this.formSubmit}>

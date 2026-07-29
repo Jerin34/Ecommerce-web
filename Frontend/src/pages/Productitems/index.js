@@ -33,7 +33,7 @@ const Productitems = (props) => {
 
   return (
     <li>
-      <Link to={`/products/${products._id}`}>
+      <Link to={`/products/${products._id}`} className="product-item-link">
         <div className="product-item-container">
           <div className="product-item-image-wrapper">
             <img src={imageUrl} alt={name} className="product-item-image" />

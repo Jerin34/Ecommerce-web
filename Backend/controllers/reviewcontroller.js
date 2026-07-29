@@ -27,7 +27,6 @@ const addReview = async(req,res) =>{
     }
 }
 const getReviews = async(req,res) =>{
-    console.log("addReview called");
     try{
     const productId = req.params.id;
     const reviews = await Reviewmodel.find({product:productId}).populate('user','name').sort({createdAt:-1});

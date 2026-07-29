@@ -27,15 +27,15 @@
 }
 
 .toast-item.success {
-  background: #2e7d32;
+  background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
 }
 
 .toast-item.error {
-  background: #c62828;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
 }
 
 .toast-item.info {
-  background: #1565c0;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
 }
 
 .toast-item button {

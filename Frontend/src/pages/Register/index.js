@@ -62,8 +62,7 @@ LoginNavigtor = () =>{
     window.location.replace('/login')
 }
   onSubmitSuccess = (data) => {
-    localStorage.setItem('jwt_token', data.token);
-    showToast('Registration successful', 'success');
+    showToast('Registration successful.Please log in.', 'success');
     window.location.replace('/login');
   };
 

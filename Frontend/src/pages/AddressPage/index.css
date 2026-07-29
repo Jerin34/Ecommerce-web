@@ -1,0 +1,42 @@
+.address-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+}
+
+.address-page h1 {
+  margin: 0 0 16px;
+  color: #0f172a;
+  font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+}
+
+.address-page > button {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 16px;
+  margin-bottom: 18px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.address-page > button:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+.address-page > .address-form {
+  margin-top: 8px;
+}
+
+@media (max-width: 600px) {
+  .address-page {
+    padding: 16px 12px 28px;
+  }
+
+  .address-page > button {
+    width: 100%;
+  }
+}

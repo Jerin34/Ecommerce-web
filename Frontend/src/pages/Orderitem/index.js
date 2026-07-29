@@ -2,7 +2,7 @@ import './index.css'
 
 const Orderitem = props => {
     const {orderDetails,cancelOrder} = props;
-    const {_id,items,status,totalPrice,createdAt,} = orderDetails;
+    const {_id,items,status,totalPrice,createdAt,shippingAddress} = orderDetails;
   const   CancelOrders = id =>{
         cancelOrder(id);
     }
@@ -32,7 +32,27 @@ const Orderitem = props => {
             </li>
         ))}
 </ul>
+{shippingAddress && (
+    <div className="shipping-address">
+        <h3>Shipping Address</h3>
 
+        <p><strong>{shippingAddress.fullName}</strong></p>
+
+        <p>{shippingAddress.phone}</p>
+
+        <p>
+            {shippingAddress.house}, {shippingAddress.area}
+        </p>
+
+        <p>
+            {shippingAddress.city}, {shippingAddress.state} - {shippingAddress.pincode}
+        </p>
+
+        {shippingAddress.landmark && (
+            <p>Landmark: {shippingAddress.landmark}</p>
+        )}
+    </div>
+)}
                 <div className="order-meta">
                     <p className="order-total">Total: {totalPrice}</p>
                     <p className={`order-status ${status.toLowerCase()}`}>{status}</p>

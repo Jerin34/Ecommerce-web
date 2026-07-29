@@ -1,9 +1,18 @@
 const Cartmodel = require('../models/Cart')
 const OrderModel = require('../models/Order')
 const jwt = require('jsonwebtoken');
+const  Addressmodel = require('../models/address')
 const createOrder = async(req,res) =>{
     const userId = req.user.id; 
+    const {addressId} = req.body
     try{
+        const address= await Addressmodel.findOne({
+            _id:addressId,
+            user:userId
+        })
+        if(!address){
+            return res.status(404).json({message:"Address Not Found"})
+        }
         const cartItems = await Cartmodel.find({user:userId}).populate('product');
         if(cartItems.length === 0){
           return   res.status(400).json({message:"Cart is empty"})
@@ -15,7 +24,17 @@ const createOrder = async(req,res) =>{
     const newOrder = new OrderModel({
             user:userId,
             items:cartItems,
-            totalPrice:totalPrice
+            totalPrice:totalPrice,
+            shippingAddress:{
+                fullName: address.fullName,
+        phone: address.phone,
+        house: address.house,
+        area: address.area,
+        city: address.city,
+        state: address.state,
+        pincode: address.pincode,
+        landmark: address.landmark,
+            }
         })
         await newOrder.save();
         await Cartmodel.deleteMany({user:userId});
