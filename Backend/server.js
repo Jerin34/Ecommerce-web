@@ -5,7 +5,7 @@ require("dotenv").config();
  const connectDb  = require('./config/db')
  const cors = require('cors');
  const authRoutes = require('./routes/authRoutes')
-const middleWarefunc  = require('./middleware/authmiddleware')
+const middleWarefunc  = require('./middleware/authMiddleware')
 const productRoutes = require('./routes/productRoutes')
 const cartRoutes = require('./routes/cartRoutes')
 const orderRoutes = require('./routes/orderRoutes')
@@ -19,21 +19,20 @@ const addressRoutes = require('./routes/addressRoutes')
  connectDb();
  app.use('/api/auth',authRoutes);
 app.get('/',(req,res) =>{
-    res.send("Lets start the backend now")
+  res.send("Lets start the backend now")
 })
-
 app.use('/api/cart',cartRoutes);
 app.use('/api/products',productRoutes);
 app.use('/api/orders',orderRoutes);     
 app.use('/api/admin', adminRoutes);
 app.get('/protected',middleWarefunc,(req,res) =>{
-    res.json({message:"This is a protected route",user:req.user});
+res.json({message:"This is a protected route",user:req.user});
 });
 app.use('/api/review',reviewRoutes);
 app.use('/api/chat',chatRoutes);
 app.use('/api/wishlist',wishListRoutes);
 app.use('/api/address',addressRoutes);
 app.listen(PORT,() =>{
-    console.log(`Server is Running on port ${PORT}`);
+ console.log(`Server is Running on port ${PORT}`);
 })
 module.exports = app;
