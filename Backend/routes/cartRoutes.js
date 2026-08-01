@@ -1,6 +1,6 @@
 const express  = require('express')
 const router = express.Router();
-const {AddtoCart,GetItem,RemoveFromCart,updateCartQuantity} = require('../controllers/cartController')
+const {AddtoCart,GetItem,RemoveFromCart,updateCartQuantity} = require('../controllers/cartcontroller')
 const middleWarefunc = require('../middleware/authmiddleware')
 router.post('/',middleWarefunc,AddtoCart)
 router.get('/',middleWarefunc,GetItem)
