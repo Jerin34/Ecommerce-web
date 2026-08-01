@@ -1,6 +1,6 @@
 const express = require('express');
 const router  =  express.Router();
-const middleWarefunc = require('../middleware/authMiddleware')
+const middleWarefunc = require('../middleware/authmiddleware')
 const {addAddress,getAddress,updateAddress,deleteAddress,patchUpdateAddress} = require('../controllers/addresscontroller')
 router.post('/',middleWarefunc,addAddress);
 router.get('/',middleWarefunc,getAddress);

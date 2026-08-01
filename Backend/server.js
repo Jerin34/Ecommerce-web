@@ -5,7 +5,7 @@ require("dotenv").config();
  const connectDb  = require('./config/db')
  const cors = require('cors');
  const authRoutes = require('./routes/authRoutes')
-const middleWarefunc  = require('./middleware/authMiddleware')
+const middleWarefunc  = require('./middleware/authmiddleware')
 const productRoutes = require('./routes/productRoutes')
 const cartRoutes = require('./routes/cartRoutes')
 const orderRoutes = require('./routes/orderRoutes')

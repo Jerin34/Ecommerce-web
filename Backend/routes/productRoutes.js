@@ -1,7 +1,7 @@
 const express = require('express')
 const {createProduct,getProducts,getProductsById,updateProducts,deleteProduct} = require('../controllers/productController')
 const router = express.Router()
-const   middleWarefunc= require('../middleware/authMiddleware')
+const   middleWarefunc= require('../middleware/authmiddleware')
 const adminmiddleware = require('../middleware/adminmiddleware')
 router.post('/', middleWarefunc,adminmiddleware,createProduct)
 router.get('/',getProducts)

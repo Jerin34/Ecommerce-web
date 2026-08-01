@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const middleWarefunc = require('../middleware/authMiddleware')
+const middleWarefunc = require('../middleware/authmiddleware')
 const adminMiddleWare = require('../middleware/adminmiddleware')
 const {getDashboardData,getAllOrders,updateOrderStatus} = require('../controllers/admincontroller')
 router.get('/dashboard',middleWarefunc,adminMiddleWare,getDashboardData);

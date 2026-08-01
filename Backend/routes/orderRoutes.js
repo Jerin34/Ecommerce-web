@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const middleWarefunc = require('../middleware/authMiddleware')
+const middleWarefunc = require('../middleware/authmiddleware')
 const adminMiddleWare = require('../middleware/adminmiddleware')
 const {createOrder,getOrders,getOrderbyId,updateOrder,getAllorders,cancelOrder} = require('../controllers/ordercontrollers')
 router.post('/',middleWarefunc,createOrder);
