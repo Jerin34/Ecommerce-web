@@ -1,11 +1,8 @@
 const path = require("path");
-require("dotenv").config({
-    path: path.join(__dirname, ".env"),
-});
-const dns = require('dns');
-dns.setServers(['8.8.8.8', '1.1.1.1']);
+require("dotenv").config();
  const express= require('express');
  const app = express();
+ const PORT = process.env.PORT || 5000;
  const connectDb  = require('./config/db')
  const cors = require('cors');
  const authRoutes = require('./routes/authRoutes')
@@ -37,7 +34,7 @@ app.use('/api/review',reviewRoutes);
 app.use('/api/chat',chatRoutes);
 app.use('/api/wishlist',wishListRoutes);
 app.use('/api/address',addressRoutes);
-app.listen(5000,() =>{
-    console.log('Server is Running on port 5000');
+app.listen(PORT,() =>{
+    console.log(`Server is Running on port ${PORT}`);
 })
 module.exports = app;
