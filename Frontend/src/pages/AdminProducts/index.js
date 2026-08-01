@@ -34,7 +34,6 @@ class AdminProducts extends Component {
             const data = await response.json();
              
             if (response.ok) {
-                console.log(data);
                 this.setState({productsList: data.products, isloading: apistatuses.success})
             } else {
                 this.setState({isloading: apistatuses.failure, errorMsg: data.message})

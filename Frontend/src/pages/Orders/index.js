@@ -36,7 +36,7 @@ class Orders extends Component {
         try {
             const response = await fetch(url, options);
             const data = await response.json();
-            console.log(data)
+            
             if (response.ok) {
                 this.setState({ orderList: data.orders, isloading: apistatuses.success });
             } else {

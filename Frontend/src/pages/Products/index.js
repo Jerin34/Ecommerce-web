@@ -180,6 +180,7 @@ renderEmptyState = () =>(
                   <option value="">All Category</option>
                   <option value="Electronics">Electronics</option>
                   <option value="Fashion">Fashion</option>
+                  <option value="Home">Home</option>
                   <option value="Books">Books</option>
                 </select>
                 <select value={sortOption} onChange={this.onChangeSortoption}>
