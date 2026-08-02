@@ -140,11 +140,14 @@ setIsWishlisted(exists);
     setError(err.message)
   }
   }
-  useEffect(() => {
-    fetchProduct();
-    fetchReviews();
-    checkWishlistStatus();
-  }, [id]);
+ 
+// eslint-disable-next-line react-hooks/exhaustive-deps
+useEffect(() => {
+  fetchProduct();
+  fetchReviews();
+  checkWishlistStatus();
+}, [id]);
+
   const addToCart = async(productId) =>{
     try{
       
