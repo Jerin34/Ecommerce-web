@@ -19,7 +19,7 @@ const ProductDetails = () => {
 
   const fetchReviews = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/review/${id}`);
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/review/${id}`);
       const data = await response.json();
       if (response.ok) {
         setReview(data.reviews);
@@ -34,7 +34,7 @@ const ProductDetails = () => {
   const fetchProduct = async () => {
     setApistatus(apiStatuses.LOADING);
     try {
-      const response = await fetch(`http://localhost:5000/api/products/${id}`);
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/products/${id}`);
       const data = await response.json();
 
       if (response.ok) {
@@ -58,7 +58,7 @@ const ProductDetails = () => {
     }
     setLoading(true);
     try {
-      const response = await fetch(`http://localhost:5000/api/review`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/review`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -89,7 +89,7 @@ const ProductDetails = () => {
         showToast("Please Login First")
          return ;
       }
-      const url = "http://localhost:5000/api/wishlist"
+      const url = `${process.env.REACT_APP_API_URL}/api/wishlist`
       const options = {
         method:'POST',
         headers:{
@@ -119,7 +119,7 @@ const ProductDetails = () => {
     if(!token){
       return ;
     }
-    const url = "http://localhost:5000/api/wishlist"
+    const url = `${process.env.REACT_APP_API_URL}/api/wishlist`
     const options = {
 method:'GET',
 headers:{
@@ -153,7 +153,7 @@ setIsWishlisted(exists);
       showToast("Please Login First")
        return ;
     }
-    const url = "http://localhost:5000/api/cart"
+    const url = `${process.env.REACT_APP_API_URL}/api/cart`
     const options = {
       method:'POST',
       headers:{
@@ -185,7 +185,7 @@ setIsWishlisted(exists);
         showToast("Please Login First")
          return ;
       }
-      const url = `http://localhost:5000/api/wishlist/${productId}`
+      const url = `${process.env.REACT_APP_API_URL}/api/wishlist/${productId}`
       const options = {
         method:'DELETE',
         headers:{

@@ -37,7 +37,7 @@ class Register extends Component {
     this.setState({ loading: true, errMsg: '' });
 
     const userDetails = { name, email, password };
-    const url = 'http://localhost:5000/api/auth/register';
+    const url = `${process.env.REACT_APP_API_URL}/api/auth/register`;
     const options = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

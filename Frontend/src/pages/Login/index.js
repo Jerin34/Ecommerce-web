@@ -55,7 +55,7 @@ class Login extends Component{
                 'Content-Type':'application/json'
             }
         }
-        const url = "http://localhost:5000/api/auth/login"
+        const url = `${process.env.REACT_APP_API_URL}/api/auth/login`
         const response = await fetch(url,options);
         const data = await response.json();
         if(response.ok){

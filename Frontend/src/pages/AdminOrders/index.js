@@ -20,7 +20,7 @@ class AdminOrders extends Component{
         this.setState({isloading: apistatuses.loading});
         try{
         const token = localStorage.getItem('jwt_token')
-        const url = "http://localhost:5000/api/admin/orders";
+        const url = `${process.env.REACT_APP_API_URL}/api/admin/orders`;
         const options ={
             method:'GET',
             headers:{
@@ -102,7 +102,7 @@ class AdminOrders extends Component{
 updateStatus = async (id,status) =>{
     try{
     const token = localStorage.getItem('jwt_token');
-    const url = `http://localhost:5000/api/admin/orders/${id}`;
+    const url = `${process.env.REACT_APP_API_URL}/api/admin/orders/${id}`;
     const options = {
         method:'PUT',
         headers:{

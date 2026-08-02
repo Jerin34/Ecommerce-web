@@ -41,7 +41,7 @@ class Cart extends Component {
       isloading: apistatuses.loading,
     });
 
-    const url = "http://localhost:5000/api/cart";
+    const url = `${process.env.REACT_APP_API_URL}/api/cart`;
     const options = {
       method: "GET",
       headers: {

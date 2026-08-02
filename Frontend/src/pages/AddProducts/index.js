@@ -50,7 +50,8 @@ formSubmit = async (e) =>{
     return;
 }
     const token  = localStorage.getItem('jwt_token');
-    const url = 'http://localhost:5000/api/products';
+   const url = `${process.env.REACT_APP_API_URL}/api/products`;
+   console.log(url)
     const options = {
         method:'POST',
         headers:{

@@ -6,7 +6,7 @@ const Cartitem = props =>{
     const {product,quantity} = cartItem
    const  onDeleteItem = async id =>{
         const token = localStorage.getItem('jwt_token');
-        const url = `http://localhost:5000/api/cart/${id}`;
+        const url = `${process.env.REACT_APP_API_URL}/api/cart/${id}`;
         const options = {
             method:'DELETE',
             headers:{
@@ -30,7 +30,7 @@ const response = await fetch(url,options);
     const increaseQuantity = async (id,action) =>{
        
         const token = localStorage.getItem('jwt_token');
-        const url = `http://localhost:5000/api/cart/${id}`;
+        const url = `${process.env.REACT_APP_API_URL}/api/cart/${id}`;
         const options = {
             method:'PUT',
             headers:{
@@ -56,7 +56,7 @@ const response = await fetch(url,options);
 }
  const decreaseQuantity = async (id,action) =>{
         const token = localStorage.getItem('jwt_token');
-        const url = `http://localhost:5000/api/cart/${id}`;
+        const url = `${process.env.REACT_APP_API_URL}/api/cart/${id}`;
         const options = {
             method:'PUT',
             headers:{

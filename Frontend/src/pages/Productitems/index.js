@@ -21,7 +21,7 @@ const Productitems = (props) => {
         Authorization: `Bearer ${token}`,
       },
     };
-    const url = "http://localhost:5000/api/cart";
+    const url = `${process.env.REACT_APP_API_URL}/api/cart`;
     const response = await fetch(url, options);
     const data = await response.json();
     if (response.ok) {

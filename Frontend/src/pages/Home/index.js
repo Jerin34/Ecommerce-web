@@ -2,11 +2,9 @@ import { Link } from 'react-router-dom'
 import Header from '../Header'
 import Chatbot from '../../components/Chatbot'
 import './index.css'
-
 const Home = () => (
   <div className="home-page">
     <Header />
-
     <main className="home-main container">
       <section className="hero-section">
         <div className="hero-content">

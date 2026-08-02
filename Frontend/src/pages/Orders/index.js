@@ -25,7 +25,7 @@ class Orders extends Component {
     getOrderList = async () => {
         this.setState({ isloading: apistatuses.loading });
         const jwt_token = localStorage.getItem('jwt_token');
-        const url = "http://localhost:5000/api/orders";
+        const url = `${process.env.REACT_APP_API_URL}/api/orders`;
         const options = {
             method: 'GET',
             headers: {
@@ -92,7 +92,7 @@ class Orders extends Component {
     };
 cancelOrder = async id => {
     const  token  = localStorage.getItem('jwt_token');
-    const url = `http://localhost:5000/api/orders/${id}/cancel`;
+    const url = `${process.env.REACT_APP_API_URL}/api/orders/${id}/cancel`;
     const options = {
       method: 'PUT',
       headers: {

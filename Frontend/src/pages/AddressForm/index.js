@@ -87,7 +87,7 @@ import { showToast } from "../../components/Toast";class AddressForm extends Com
 
     try {
         const token = localStorage.getItem("jwt_token");
-        const url = editingAddress ? `http://localhost:5000/api/address/${editingAddress._id}`:"http://localhost:5000/api/address"
+        const url = editingAddress ? `${process.env.REACT_APP_API_URL}/api/address/${editingAddress._id}`:`${process.env.REACT_APP_API_URL}/api/address`;
         const response = await fetch(
             url,
             {

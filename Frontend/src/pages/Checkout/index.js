@@ -41,7 +41,7 @@ class Checkout extends Component {
       isloading: apistatuses.loading,
     });
 
-    const url = "http://localhost:5000/api/cart";
+    const url = `${process.env.REACT_APP_API_URL}/api/cart`;
     const options = {
       method: "GET",
       headers: {
@@ -77,7 +77,7 @@ class Checkout extends Component {
   fetchAddress = async () => {
     try {
       const token = localStorage.getItem("jwt_token");
-      const url = "http://localhost:5000/api/address";
+      const url = `${process.env.REACT_APP_API_URL}/api/address`;
       const options = {
         method: "GET",
         headers: {
@@ -149,7 +149,7 @@ PlaceOrder = async () => {
   }
   try {
     const jwt_token = localStorage.getItem("jwt_token");
-    const url = "http://localhost:5000/api/orders";
+    const url = `${process.env.REACT_APP_API_URL}/api/orders`;
     const options = {
       method: "POST",
       headers: {

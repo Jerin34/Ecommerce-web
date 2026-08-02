@@ -12,6 +12,7 @@ const apistatusConstants = {
   loading: "LOADING",
   error: "ERROR",
 };
+
 const SORT_OPTIONS = {
     DEFAULT: 'DEFAULT',
     PRICE_LOW_HIGH: 'PRICE_LOW_HIGH',
@@ -119,7 +120,8 @@ renderEmptyState = () =>(
   fetchProducts = async () => {
     this.setState({ apistatuses: apistatusConstants.loading });
     try {
-      const url = "http://localhost:5000/api/products";
+      const url = `${process.env.REACT_APP_API_URL}/api/products`;
+     
       const response = await fetch(url);
       const data = await response.json();
 

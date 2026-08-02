@@ -42,7 +42,7 @@ openForm = () =>{
             showToast('error','Please Login First')
             return ;
         }
-        const url =`http://localhost:5000/api/address/${id}`
+        const url =`${process.env.REACT_APP_API_URL}/api/address/${id}`
         const options={
             method:'DELETE',
             headers:{
@@ -68,7 +68,7 @@ openForm = () =>{
         const token = localStorage.getItem("jwt_token");
 
         const response = await fetch(
-            `http://localhost:5000/api/address/${id}`,
+            `${process.env.REACT_APP_API_URL}/api/address/${id}`,
             {
                 method: "PATCH",
                 headers: {
@@ -96,7 +96,7 @@ openForm = () =>{
             this.setState({errorMsg:'Please Login First',loading:false})
             return ;
         }
-        const url = 'http://localhost:5000/api/address'
+        const url = `${process.env.REACT_APP_API_URL}/api/address`
         const options={
             method:'GET',
             headers:{

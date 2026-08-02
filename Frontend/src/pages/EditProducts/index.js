@@ -46,7 +46,7 @@ class EditProduct extends Component {
       const { id } = this.props;
       console.log(id)
       const token = localStorage.getItem("jwt_token");
-      const url = `http://localhost:5000/api/products/${id}`;
+      const url = `${process.env.REACT_APP_API_URL}/api/products/${id}`;
       const options = {
         method: "GET",
         headers: {
@@ -91,7 +91,7 @@ class EditProduct extends Component {
         showToast("Please fill all fields", "error");
         return;
       }
-      const url = `http://localhost:5000/api/products/${id}`;
+      const url = `${process.env.REACT_APP_API_URL}/api/products/${id}`;
       const options = {
         method: "PUT",
         headers: {

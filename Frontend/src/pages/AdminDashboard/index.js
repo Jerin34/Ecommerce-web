@@ -22,7 +22,7 @@ class AdminDashboard extends Component{
         try{
         const jwt_token = localStorage.getItem('jwt_token');
         this.setState({apistatus:apistatuses.loading})
-        const url="http://localhost:5000/api/admin/dashboard";
+        const url=`${process.env.REACT_APP_API_URL}/api/admin/dashboard`;
         const options = {
             method:'GET',
             headers:{

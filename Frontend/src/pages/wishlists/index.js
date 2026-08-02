@@ -15,7 +15,7 @@ const WishList = () => {
 
         try {
             const token = localStorage.getItem('jwt_token');
-            const url = "http://localhost:5000/api/wishlist";
+            const url = `${process.env.REACT_APP_API_URL}/api/wishlist`;
             const options = {
                 method: 'GET',
                 headers: {
@@ -47,7 +47,7 @@ const WishList = () => {
     const removeWishlistItem = async (wishlistId) => {
         try {
             const token = localStorage.getItem('jwt_token');
-            const url = `http://localhost:5000/api/wishlist/${wishlistId}`;
+            const url = `${process.env.REACT_APP_API_URL}/api/wishlist/${wishlistId}`;
             const options = {
                 method: 'DELETE',
                 headers: {
