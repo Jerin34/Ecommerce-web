@@ -27,7 +27,7 @@ class Chatbot extends Component {
         input: "",
         isLoading: true,
       });
-      const url = "http://localhost:5000/api/chat";
+      const url = `${process.env.REACT_APP_API_URL}/api/chat`;
       const options = {
         method: "POST",
         headers: {
