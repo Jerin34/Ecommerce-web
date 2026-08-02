@@ -140,13 +140,13 @@
       setError(err.message)
     }
     }
- // eslint-disable-next-line react-hooks/exhaustive-deps
-useEffect(() => {
+ useEffect(() => {
   fetchProduct();
   fetchReviews();
   checkWishlistStatus();
-}, [id]); 
+
   // eslint-disable-next-line react-hooks/exhaustive-deps
+}, [id]);
     const addToCart = async(productId) =>{
       try{
         
