@@ -44,7 +44,7 @@ class EditProduct extends Component {
   getProductDetails = async () => {
     try {
       const { id } = this.props;
-      console.log(id)
+      
       const token = localStorage.getItem("jwt_token");
       const url = `${process.env.REACT_APP_API_URL}/api/products/${id}`;
       const options = {

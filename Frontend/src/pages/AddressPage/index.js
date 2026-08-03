@@ -16,7 +16,7 @@ class AddressPage extends Component{
         this.fetchAddress()
     }
     onEdit = address =>{
-        console.log(address)
+       
         this.setState({
             showAddressform:true,
             editingAddress:address
